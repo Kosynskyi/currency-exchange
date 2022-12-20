@@ -1,16 +1,19 @@
+import React, { useState, useEffect } from 'react';
+import CurrentExchangeRate from './CurrentExchangeRate';
+import CurrencyExchangeCalculator from './CurrencyExchangeCalculator';
+import { getCurrentCurrencyExchange } from 'services/API/API';
+
 export const App = () => {
+  const [currentRate, setCurrentRate] = useState(null);
+
+  useEffect(() => {
+    getCurrentCurrencyExchange().then(setCurrentRate);
+  }, []);
+
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template
-    </div>
+    <>
+      <CurrentExchangeRate currentRate={currentRate} />
+      <CurrencyExchangeCalculator currentRate={currentRate} />
+    </>
   );
 };
