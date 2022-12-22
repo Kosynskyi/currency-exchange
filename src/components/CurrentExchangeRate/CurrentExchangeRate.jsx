@@ -1,28 +1,28 @@
-// import React, { useState, useEffect } from 'react';
-// import { getCurrentCurrencyExchange } from 'services/API/API';
-import { Box } from 'components/Box';
+import React from 'react';
+import {
+  Wrapper,
+  CurrentRateList,
+  CurrentRateItem,
+  Text,
+  MainTitle,
+} from './CurrentExchangeRate.styled';
 
 const CurrentExchangeRate = ({ currentRate }) => {
-  //   const [currentRate, setCurrentRate] = useState(null);
-
-  //   useEffect(() => {
-  //     getCurrentCurrencyExchange().then(setCurrentRate);
-  //   }, []);
-
   if (!currentRate) return;
-  //   console.log('currentRate ', currentRate.data);
+
   return (
-    <Box as="header">
-      <ul>
+    <Wrapper>
+      <MainTitle>Курс валют станом на {new Date().toLocaleString()}</MainTitle>
+      <CurrentRateList>
         {currentRate.data.map(({ ccy, buy, sale }) => (
-          <li key={ccy}>
-            <p>{ccy}</p>
-            <p>{buy}</p>
-            <p>{sale}</p>
-          </li>
+          <CurrentRateItem key={ccy}>
+            <Text>{ccy}</Text>
+            <Text>{Number(buy).toFixed(2)}</Text>
+            <Text>{Number(sale).toFixed(2)}</Text>
+          </CurrentRateItem>
         ))}
-      </ul>
-    </Box>
+      </CurrentRateList>
+    </Wrapper>
   );
 };
 
