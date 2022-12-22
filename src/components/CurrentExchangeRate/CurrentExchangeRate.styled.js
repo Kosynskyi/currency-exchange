@@ -22,6 +22,7 @@ export const MainTitle = styled.h1`
 
   @media ${breakpoints.minTablet} {
     margin-bottom: ${props => props.theme.space[1]}px;
+    font-size: ${props => props.theme.fontSizes.m};
   }
 `;
 
