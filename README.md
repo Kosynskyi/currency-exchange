@@ -7,7 +7,8 @@
 
 Для того, щоб скористатися даним додатком на браузер Chrome потрібно встановити
 плагін, який допоможе відправляти крос доменні запити - Moesif Origin & CORS
-Changer (chrome://extensions/?id=digfbfaphojjndkpccljibejjbppifbc)
+Changer
+(https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc)
 
 EN
 
@@ -17,4 +18,4 @@ NBU and Privatbank).
 
 In order to solve this problem you must install special plugin in your browser.
 I'm using Google Chrome and have installed Moesif Origin & CORS Changer
-(chrome://extensions/?id=digfbfaphojjndkpccljibejjbppifbc)
+(https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc)

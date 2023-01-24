@@ -1,21 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import CurrentExchangeRate from './CurrentExchangeRate';
-// import CurrencyExchangeCalculator from './CurrencyExchangeCalculator';
 import CurrencyConverter from './CurrencyConverter';
+import Error from './Error';
 import { getCurrentCurrencyExchange } from 'services/API/API';
 
 export const App = () => {
   const [currentRate, setCurrentRate] = useState(null);
 
   useEffect(() => {
-    getCurrentCurrencyExchange().then(setCurrentRate);
+    getCurrentCurrencyExchange()
+      .then(setCurrentRate)
+      .catch(err => console.log(err.message));
   }, []);
 
   return (
     <>
-      <CurrentExchangeRate currentRate={currentRate} />
-      {/* <CurrencyExchangeCalculator currentRate={currentRate} /> */}
-      <CurrencyConverter currentRate={currentRate} />
+      {!currentRate ? (
+        <Error />
+      ) : (
+        <>
+          <CurrentExchangeRate currentRate={currentRate} />
+          <CurrencyConverter currentRate={currentRate} />
+        </>
+      )}
     </>
   );
 };
